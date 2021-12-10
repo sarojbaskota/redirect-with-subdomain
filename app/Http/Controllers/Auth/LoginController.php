@@ -33,11 +33,6 @@ class LoginController extends Controller
             return '/home';
         }
         else{
-            // $domain =  preg_replace('#^https?://#', '', rtrim(env('APP_URL', 'http://localhost'),'/'));
-            // $subdomain = auth()->user()->subdomain.'.'.$domain.'/dashboard';
-
-            // $redirectTo = property_exists($this, 'redirectTo') ? $this->redirectTo : '/dashboard';
-
             $this->redirectPath();
         } 
     }
@@ -52,7 +47,7 @@ class LoginController extends Controller
     }
     public function redirectPath()
     {
-        $redirectTo = property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+        $redirectTo = property_exists($this, 'redirectTo') ? $this->redirectTo : '/dashboard';
 
         $url = env('APP_URL');
         $subDomain = auth()->user()->subdomain;

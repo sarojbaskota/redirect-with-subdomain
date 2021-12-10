@@ -18,10 +18,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-// Route::group(['middleware' => 'admin'], function () {
-//     // 'prefix' => 'admin'
-//     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// });
+Route::group(['middleware' => 'admin'], function () {
+    // 'prefix' => 'admin'
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
 
 Route::domain('{subdomain}.'.config('app.short_url'))->group(function () {
     Route::group(['middleware' => 'client'], function () {
